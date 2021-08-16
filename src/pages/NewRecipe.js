@@ -1,16 +1,16 @@
 import { useHistory } from "react-router-dom";
 
-import NewMeetupForm from "../components/meetups/NewMeetupForm";
+import NewRecipeForm from "../components/recipes/NewRecipeForm";
 
-function NewMeetupPage() {
+function NewRecipePage() {
   const history = useHistory();
 
-  function addMeetupHandler(meetupData) {
+  function addRecipeHandler(recipeData) {
     fetch(
       "https://react-recipes-ea075-default-rtdb.firebaseio.com/recipes.json",
       {
         method: "POST",
-        body: JSON.stringify(meetupData),
+        body: JSON.stringify(recipeData),
         headers: {
           "Content-Type": "application/json",
         },
@@ -22,9 +22,9 @@ function NewMeetupPage() {
   return (
     <section>
       <h1>Add New Recipe</h1>
-      <NewMeetupForm onAddMeetup={addMeetupHandler} />
+      <NewRecipeForm onAddRecipe={addRecipeHandler} />
     </section>
   );
 }
 
-export default NewMeetupPage;
+export default NewRecipePage;
